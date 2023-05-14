@@ -25,6 +25,17 @@ $(function init() {
 
   });
 
+// Timeblock colors as time changes past/present/future
+function setBlockColor() {
+    
+    timeblockID.each(function () {
+    // Split it to display the time contained at the end of the ID, 
+    calTimeBlock = $(this).attr('id').split('-')[1];
+    // And convert it to a Moment.js format, then an integer
+    calTimeBlock = parseInt(moment(calTimeBlock, 'H').format('H'));
+    // Get Moment.js Time & format identically
+    currentTime = parseInt(moment().format('H'));
+
 
 
   
