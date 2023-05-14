@@ -27,7 +27,7 @@ $(function init() {
 
 // Timeblock colors as time changes past/present/future
 function setBlockColor() {
-    
+
     timeblockID.each(function () {
     // Split it to display the time contained at the end of the ID, 
     calTimeBlock = $(this).attr('id').split('-')[1];
@@ -36,6 +36,18 @@ function setBlockColor() {
     // Get Moment.js Time & format identically
     currentTime = parseInt(moment().format('H'));
 
+//if/else setup for time+block rotation
+if (currentTime < calTimeBlock) {
+    $(this).removeClass('past present');
+    $(this).addClass('future');
+} else if (currentTime === calTimeBlock) {
+    $(this).removeClass('past future');
+    $(this).addClass('present');
+} else if (currentTime > calTimeBlock) {
+    $(this).removeClass('present future');
+    $(this).addClass('past');
+} else {
+    console.log("Refresh the page and try again");
+}
 
 
-  
