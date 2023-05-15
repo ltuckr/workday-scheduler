@@ -49,5 +49,7 @@ if (currentTime < calTimeBlock) {
 } else {
     console.log("Refresh the page and try again");
 }
-
+ })
+ 
+};
 
