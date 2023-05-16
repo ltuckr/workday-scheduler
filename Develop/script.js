@@ -53,9 +53,27 @@ if (currentTime < calTimeBlock) {
  })
  
 };
+
+//  Date/Time and block update minute to minute
+function setIntervalOnMinute() {
+    var currentDateSeconds = new Date().getSeconds();
+    if (currentDateSeconds == 0) {
+        setInterval(currentMomentDate, 60000);
+        setInterval(setBGColors, 60000);
+    } else {
+        setTimeout(function () {
+            setIntervalOnMinute();
+        }, (60 - currentDateSeconds) * 1000);
+    }
+    currentMomentDate();
+    setBGColors();
+    setIntervalOnMinute();
+};
 //current date and time
 function rightNow() {
     currentDate = moment().format('dddd, LL');
     currentDateEl.text(currentDate);
 };
+
+
 
