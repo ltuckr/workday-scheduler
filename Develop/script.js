@@ -26,6 +26,12 @@ $(function init() {
 
   });
 
+  //current date and time
+function rightNow() {
+    currentDate = moment().format('dddd, LL');
+    currentDateEl.text(currentDate);
+};
+
 // Timeblock colors as time changes past/present/future
 function setBlockColor() {
 
@@ -69,11 +75,7 @@ function setIntervalOnMinute() {
     setBGColors();
     setIntervalOnMinute();
 };
-//current date and time
-function rightNow() {
-    currentDate = moment().format('dddd, LL');
-    currentDateEl.text(currentDate);
-};
+
 
 
 
