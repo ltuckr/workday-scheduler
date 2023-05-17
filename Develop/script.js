@@ -27,7 +27,7 @@ setBlockColor();
   });
 
   //current date and time
-function rightNow() {
+function currentMomentDate() {
     currentDate = moment().format('dddd, LL');
     currentDateEl.text(currentDate);
 };
