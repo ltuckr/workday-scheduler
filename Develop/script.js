@@ -104,7 +104,34 @@ function storeEvents() {
     localStorage.setItem(calEntryEventTime, calEntryEventTxt);
 };
 
+// Renders Events Pulled from Local Storage to DOM
+function renderEvents() {
+    for (let i = 0; i < timeArr.length; i++) { 
+        $('[id^=timeblock-]').each(function (i, v) {
+            $(v).val(localStorage.getItem(timeArr[i]));
+        })
+    }
+};
 
+// Triggers Click Handler for Save Buttons
+saveBtn.on('click', saveButtonClickHandler);
+
+// When Save Button Clicked, Pulls Corresponding Time and Date Values
+function saveButtonClickHandler(event) {
+    // Keeps Form from Sending
+    event.preventDefault();
+    // Sets Value to Time Associated with Clicked Save Button
+    calEntryEventTime = $(this).attr('id').split('-')[1];
+    // Sets Value to the User's Input Text
+    calEntryEventTxt = $(this).siblings('textarea[name^="timeblock"]').val().trim();
+    // Calls Function to Store in Local Storage
+    storeEvents();
+};
+
+// Stores Time and Text Values to Local Storage where (Time = Key) and (User's Input Text = Value)
+function storeEvents() {
+    localStorage.setItem(calEntryEventTime, calEntryEventTxt);
+};
 
 
 
