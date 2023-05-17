@@ -59,7 +59,6 @@ if (currentTime < calTimeBlock) {
  })
  
 };
-
 //  Date/Time and block update minute to minute
 function setIntervalOnMinute() {
     var currentDateSeconds = new Date().getSeconds();
@@ -75,6 +74,37 @@ function setIntervalOnMinute() {
     setBGColors();
     setIntervalOnMinute();
 };
+
+// Renders Events Pulled from Local Storage to DOM
+function renderEvents() {
+    for (let i = 0; i < timeArr.length; i++) { 
+        $('[id^=timeblock-]').each(function (i, v) {
+            $(v).val(localStorage.getItem(timeArr[i]));
+        })
+    }
+};
+
+// Triggers Click Handler for Save Buttons
+saveBtn.on('click', saveButtonClickHandler);
+
+// Save will active time and value storage
+function saveButtonClickHandler(event) {
+    // behave browser
+    event.preventDefault();
+    //time
+     calEntryEventTime = $(this).attr('id').split('-')[1];
+    //text value
+    calEntryEventTxt = $(this).siblings('textarea[name^="timeblock"]').val().trim();
+  //put in local storage
+    storeEvents();
+};
+
+// Stores Time and Text Values to Local Storage where (Time = Key) and (User's Input Text = Value)
+function storeEvents() {
+    localStorage.setItem(calEntryEventTime, calEntryEventTxt);
+};
+
+
 
 
 
