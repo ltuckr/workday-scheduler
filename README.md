@@ -22,6 +22,7 @@ This webpage contains a constantly updating workday calendar with blocks of time
 Starter code html and css was sourced from my bootcamp class repo. 
 https://rollbar.com/blog/javascript-referenceerror/#
 https://github.com/CailinBellWold/Work-Day-Scheduler
+https://www.nicesnippets.com/blog/jquery-moment-get-current-date-example
 https://day.js.org/docs/en/display/format
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
 https://mirzaleka.medium.com/the-complete-guide-to-day-js-fb835a5d945a
@@ -52,5 +53,4 @@ N/A
 
 
 
-#credits
-https://www.nicesnippets.com/blog/jquery-moment-get-current-date-example
+
