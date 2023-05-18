@@ -1,7 +1,3 @@
-//Present date and time
-var currentDateEL = $("#currentDate");
-var currentDate;
-var currentTime;
 
 //Button
 var saveBtn = $(".saveBtn");
@@ -20,17 +16,16 @@ var timeArr = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
 //sitewide date and events
 $(function init() {
 
-currentMomentDate();
+
 renderEvent();
 setBlockColor();
 
   });
 
-  //current date and time
-function currentMomentDate() {
-    currentDate = moment().format('dddd, LL');
-    currentDateEl.text(currentDate);
-};
+  //Present date and time
+var todayDate = dayjs().format("dddd, MMM DD, YYYY, h:mm A");
+$("#currentDay").text(todayDate);
+
 
 // Timeblock colors as time changes past/present/future
 function setBlockColor() {
@@ -38,10 +33,8 @@ function setBlockColor() {
     timeblockID.each(function () {
     // Split it to display the time contained at the end of the ID, 
     calTimeBlock = $(this).attr('id').split('-')[1];
-    // And convert it to a Moment.js format, then an integer
-    calTimeBlock = parseInt(moment(calTimeBlock, 'H').format('H'));
-    // Get Moment.js Time & format identically
-    currentTime = parseInt(moment().format('H'));
+    console.log(time)
+   
 
 //if/else setup for time+block rotation
 if (currentTime < calTimeBlock) {
@@ -70,9 +63,8 @@ function setIntervalOnMinute() {
             setIntervalOnMinute();
         }, (60 - currentDateSeconds) * 1000);
     }
-    currentMomentDate();
-    setBGColors();
-    setIntervalOnMinute();
+    
+   
 };
 
 // Renders Events Pulled from Local Storage to DOM
