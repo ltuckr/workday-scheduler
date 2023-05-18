@@ -8,7 +8,9 @@ A simple calendar application that allows a user to save events for each hour of
 
 Deploying the URL should allow the user to access a webpage, containing a constantly updating workday calendar.
 Please reference the screen shot: ![calendar](https://github.com/ltuckr/workday-scheduler/assets/128933116/165dcddd-a885-4ccf-a6fe-8f05d9eb70ca)
-Deployed page URL: 
+
+
+Deployed page URL: https://ltuckr.github.io/workday-scheduler/
 
 
 
