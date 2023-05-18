@@ -2,7 +2,6 @@
 var saveBtn = $(".saveBtn");
 
 // Block coloration
-var calTimeBlock;
 var timeblockID = $("textarea[id*='timeblock']");
 var timerInterval;
 
@@ -42,16 +41,15 @@ function setBlockColor() {
 
 // Date/Time and block update minute to minute
 function setIntervalOnMinute() {
-  var currentDateSeconds = new Date().getSeconds();
-  if (currentDateSeconds == 0) {
-    setInterval(currentMomentDate, 60000);
-    setInterval(setBlockColor, 60000);
-  } else {
-    setTimeout(function () {
-      setIntervalOnMinute();
-    }, (60 - currentDateSeconds) * 1000);
+    var currentDateSeconds = new Date().getSeconds();
+    if (currentDateSeconds == 0) {
+      setInterval(setBlockColor, 60000);
+    } else {
+      setTimeout(function () {
+        setIntervalOnMinute();
+      }, (60 - currentDateSeconds) * 1000);
+    }
   }
-}
 
 // Renders Events Pulled from Local Storage to DOM
 function renderEvents() {
@@ -65,7 +63,7 @@ function renderEvents() {
 // Triggers Click Handler for Save Buttons
 saveBtn.on("click", saveButtonClickHandler);
 
-// Save will activate time and value storage
+// Save button will activate time and value storage
 function saveButtonClickHandler(event) {
   event.preventDefault();
   calEntryEventTime = $(this).attr("id").split("-")[1];
